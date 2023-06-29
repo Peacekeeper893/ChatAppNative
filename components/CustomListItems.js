@@ -12,6 +12,7 @@ import {
   query,
   orderBy,
 } from '../firebase'
+import { limit } from 'firebase/firestore';
 
 const CustomListItems = ({ id, chatName,chatURL , enterChat }) => {
 
@@ -26,7 +27,8 @@ const CustomListItems = ({ id, chatName,chatURL , enterChat }) => {
     onSnapshot(
       query(
         collection(db, `chats/${id}`, 'messages'),
-        orderBy('timestamp', 'desc')
+        orderBy('timestamp', 'desc'),
+        limit(1)
       ),
       (snapshot) => {
         setChatMessages(

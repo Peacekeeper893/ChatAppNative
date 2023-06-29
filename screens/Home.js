@@ -72,9 +72,9 @@ const Home = ({ navigation , route }) => {
       headerLeft: () => (
         <TouchableOpacity
           
-        onPress={() => {
-          signOutUser();
-        }}
+          onPress={() => {
+            navigation.navigate("Profile");
+          }}
 
           
           style={{
