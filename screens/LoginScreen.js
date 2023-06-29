@@ -26,25 +26,18 @@ const LoginScreen = ({ navigation }) => {
 
 
     const auth = getAuth();
-    const unsubscribe = async () => {
-      await onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, (user) => {
   
         // console.log(user)
         if (user) {
-          const uid = user.uid;
+
           navigation.replace("Home");
-          // ...
+
         } else {
-          // User is signed out
-          // ...
-  
           console.log("User is not signed in")
         }
       })
-    };
-
-
-    unsubscribe();
+    
 
   }, []);
 

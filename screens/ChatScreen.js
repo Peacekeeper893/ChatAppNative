@@ -19,15 +19,22 @@ import {
 
 const ChatScreen = ({ navigation, route }) => {
 
+  console.log("Chat Screen")
+
+
   const auth = getAuth()
   const db = getFirestore()
 
 
   const [input, setInput] = useState("")
   const [messages, setMessages] = useState([])
+
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerTitle: () => (
+
+        
         <View
           style={{
             flexDirection: "row",
@@ -37,7 +44,8 @@ const ChatScreen = ({ navigation, route }) => {
           <Avatar
             rounded
             source={{
-              uri: "https://icon-library.com/images/android-profile-icon/android-profile-icon-27.jpg",
+              
+              uri: route.params.chatURL || "https://play-lh.googleusercontent.com/8A8bzW__Xk36ceYu5hYtW6oxeZ5sP38q2Ll07b1rhFzHPF8xy4kzFVve7Mm_y-34d-yF",
             }}
           ></Avatar>
           <Text
@@ -48,6 +56,7 @@ const ChatScreen = ({ navigation, route }) => {
             }}
           >
             {route.params.chatName}
+            
           </Text>
         </View>
       ),

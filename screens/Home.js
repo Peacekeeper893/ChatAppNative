@@ -20,6 +20,8 @@ import { collection, getDocs } from "firebase/firestore";
 const Home = ({ navigation , route }) => {
   const [chats, setChats] = useState([]);
 
+  console.log("Home");
+
   useEffect(() => {
 
     console.log("Here")
@@ -69,8 +71,14 @@ const Home = ({ navigation , route }) => {
       headerTintColor: "black",
       headerLeft: () => (
         <TouchableOpacity
-          onPress={() => {
-            signOutUser();
+          
+        onPress={() => {
+          signOutUser();
+        }}
+
+          
+          style={{
+            marginRight:9,
           }}
         >
           <Avatar
@@ -89,8 +97,12 @@ const Home = ({ navigation , route }) => {
             marginRight: 20,
           }}
         >
-          <TouchableOpacity activeOpacity={0.5}>
-            <AntDesign name="camerao" size={24} color="black" />
+          <TouchableOpacity activeOpacity={0.5}
+          onPress={() => {
+            signOutUser();
+          }}
+>
+            <AntDesign name="logout" size={24} color="black" />
           </TouchableOpacity>
           <TouchableOpacity
             activeOpacity={0.5}
@@ -98,7 +110,8 @@ const Home = ({ navigation , route }) => {
               navigation.navigate("AddChat");
             }}
           >
-            <SimpleLineIcons name="pencil" size={24} color="black" />
+
+            <AntDesign name="pluscircle" size={24}></AntDesign>
           </TouchableOpacity>
         </View>
       ),
@@ -106,11 +119,12 @@ const Home = ({ navigation , route }) => {
   }, []);
 
 
-  const enterChat = (id, chatName) => {
+  const enterChat = (id, chatName, chatURL) => {
      
     navigation.navigate("Chat", {
       id: id,
-      chatName:chatName,
+      chatName: chatName,
+      chatURL:chatURL,
     })
    }
 
@@ -118,9 +132,9 @@ const Home = ({ navigation , route }) => {
     <SafeAreaView>
       <ScrollView>
 
-        {chats.map(({ id, data: { chatName } }) => (
+        {chats.map(({ id, data: { chatName , chatURL } }) => (
           
-          <CustomListItems key={id} id={id} chatName={chatName} enterChat={enterChat}/>
+          <CustomListItems key={id} id={id} chatName={chatName} chatURL={chatURL} enterChat={enterChat}/>
         ))}
       </ScrollView>
     </SafeAreaView>

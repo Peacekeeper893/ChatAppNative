@@ -13,9 +13,11 @@ import {
   orderBy,
 } from '../firebase'
 
-const CustomListItems = ({ id, chatName, enterChat }) => {
+const CustomListItems = ({ id, chatName,chatURL , enterChat }) => {
 
   const col = ":"
+
+  console.log("OOPS Just had a FUCKY-WUCKY");
   
   const [chatMessages, setChatMessages] = useState([])
   const db = getFirestore()
@@ -32,16 +34,16 @@ const CustomListItems = ({ id, chatName, enterChat }) => {
         )
       }
     )
-  )
+  ,[])
 
   return (
-    <ListItem onPress={() => enterChat(id , chatName) } key={id} bottomDivider>
+    <ListItem onPress={() => enterChat(id , chatName , chatURL) } key={id} bottomDivider>
           <Avatar
               rounded
               source={{
                 uri:
-                  chatMessages?.[0]?.photoURL ||
-                  'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
+                  chatURL ||
+                  "https://play-lh.googleusercontent.com/8A8bzW__Xk36ceYu5hYtW6oxeZ5sP38q2Ll07b1rhFzHPF8xy4kzFVve7Mm_y-34d-yF",
               }}
           />
 

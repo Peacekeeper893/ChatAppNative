@@ -5,12 +5,16 @@ import { collection, addDoc } from "firebase/firestore";
 
 import { db } from "../firebase";
 const AddChat = ({ navigation }) => {
+
+  console.log("ADd Chat")
   const [chatname, setchatname] = useState("");
+  const [chatimg, setchatimg] = useState("");
 
   const createChat = async () => {
     try {
       const docRef = await addDoc(collection(db, "chats"), {
         chatName: chatname,
+        chatURL : chatimg,
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
@@ -43,6 +47,12 @@ const AddChat = ({ navigation }) => {
         value={chatname}
         onChangeText={(text) => setchatname(text)}
       ></Input>
+      <Input
+        placeholder="Image URL (optional)"
+        value={chatimg}
+        onChangeText={(text) => setchatimg(text)}
+        onSubmitEditing={createChat}
+      />
       <Button onPress={createChat} style={styles.button}>
         Create a new chat
       </Button>

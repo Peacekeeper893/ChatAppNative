@@ -1,4 +1,4 @@
-import { initializeApp, getApps } from 'firebase/app'
+import { initializeApp, getApps } from "firebase/app";
 import {
   getFirestore,
   collection,
@@ -7,7 +7,7 @@ import {
   serverTimestamp,
   query,
   orderBy,
-} from 'firebase/firestore'
+} from "firebase/firestore";
 import {
   getAuth,
   onAuthStateChanged,
@@ -15,27 +15,26 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
   signOut,
-} from 'firebase/auth'
+} from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAKo0LQqjUr4pFTPyQ5n3yWCeFGzLRJ5NQ",
-  authDomain: "chat-app-9b8d8.firebaseapp.com",
-  projectId: "chat-app-9b8d8",
-  storageBucket: "chat-app-9b8d8.appspot.com",
-  messagingSenderId: "574343739887",
-  appId: "1:574343739887:web:9c6eca07a7b9bd750b9e1a",
+  apiKey: "AIzaSyB1-BbAaGUh9By7op0mQIbV3pbYiwXY5Ac",
+  authDomain: "signal-build2.firebaseapp.com",
+  projectId: "signal-build2",
+  storageBucket: "signal-build2.appspot.com",
+  messagingSenderId: "910173136026",
+  appId: "1:910173136026:web:4b35059ea95187f25ceb23",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 const db = getFirestore(app);
 
 export { db, auth };
-  
+
 export {
   getAuth,
   onAuthStateChanged,
@@ -50,4 +49,4 @@ export {
   serverTimestamp,
   query,
   orderBy,
-}
+};
