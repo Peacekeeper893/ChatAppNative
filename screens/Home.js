@@ -20,11 +20,9 @@ import { collection, getDocs } from "firebase/firestore";
 const Home = ({ navigation , route }) => {
   const [chats, setChats] = useState([]);
 
-  console.log("Home");
-
+  
   useEffect(() => {
 
-    console.log("Here")
     const read = async () => {
       const querySnapshot = await getDocs(collection(db, "chats"));
       querySnapshot.forEach((doc) => {

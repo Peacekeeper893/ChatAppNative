@@ -64,7 +64,7 @@ const LoginScreen = ({ navigation }) => {
       <StatusBar style="light" />
       <Image
         source={{
-          uri: "https://www.howtogeek.com/wp-content/uploads/2022/10/Google-Messages-2022-Hero.jpg?height=200p&trim=2,2,2,2&crop=16:9",
+          uri: "https://i.ibb.co/K6fmv4c/Design-1-2.png",
         }}
         style={{ width: 200, height: 200 }}
       />
