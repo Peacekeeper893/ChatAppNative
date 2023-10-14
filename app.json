@@ -2,6 +2,7 @@
   "expo": {
     "name": "Chat-Sync",
     "slug": "chatsync",
+    "plugins": ["@react-native-google-signin/google-signin"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icont.jpeg",
@@ -18,13 +19,20 @@
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icont.jpeg",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.navneet_nitkkr.chatsync"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0a89461a-d030-4d16-9acf-a1f34088ea56"
+      }
     }
   }
 }

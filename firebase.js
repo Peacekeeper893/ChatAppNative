@@ -18,13 +18,14 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB1-BbAaGUh9By7op0mQIbV3pbYiwXY5Ac",
-  authDomain: "signal-build2.firebaseapp.com",
-  projectId: "signal-build2",
-  storageBucket: "signal-build2.appspot.com",
-  messagingSenderId: "910173136026",
-  appId: "1:910173136026:web:4b35059ea95187f25ceb23",
+  apiKey: "AIzaSyAKo0LQqjUr4pFTPyQ5n3yWCeFGzLRJ5NQ",
+  authDomain: "chat-app-9b8d8.firebaseapp.com",
+  projectId: "chat-app-9b8d8",
+  storageBucket: "chat-app-9b8d8.appspot.com",
+  messagingSenderId: "574343739887",
+  appId: "1:574343739887:web:9c6eca07a7b9bd750b9e1a",
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

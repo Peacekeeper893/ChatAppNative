@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "574343739887",
+    "project_id": "chat-app-9b8d8",
+    "storage_bucket": "chat-app-9b8d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:574343739887:android:89ae87ef6195586d0b9e1a",
+        "android_client_info": {
+          "package_name": "com.navneet_nitkkr.chatsync"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "574343739887-02aq0pv1buq09g9semaulgbv4s3827co.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.navneet_nitkkr.chatsync",
+            "certificate_hash": "ad4daa0f289199b2f55b7a2883f007fb5eb340c3"
+          }
+        },
+        {
+          "client_id": "574343739887-1tm9k6co5mdf582sndrip32eu7fp2n0b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.navneet_nitkkr.chatsync",
+            "certificate_hash": "d3f4da13bca2b710062dd654db346555db4df994"
+          }
+        },
+        {
+          "client_id": "574343739887-655fr1arr8t085j8ep28m3298d95gmm1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLt8pJHlHIbcjI3yi6hcVETD-VNf6RCpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "574343739887-655fr1arr8t085j8ep28m3298d95gmm1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

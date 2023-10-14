@@ -7,14 +7,15 @@ import { Button, Input, Image } from "@rneui/themed";
 import { StatusBar } from "expo-status-bar";
 import { getAuth, onAuthStateChanged , User} from "firebase/auth";
 
-import {  signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
-// import { auth } from '../firebase.js';
+import { signInWithRedirect, getRedirectResult } from "firebase/auth";
 
 
 
 
 const LoginScreen = ({ navigation }) => {
+
 
 
   const [email, setEmail] = useState("");
@@ -23,6 +24,8 @@ const LoginScreen = ({ navigation }) => {
 
 
   useEffect(() => {
+
+
 
 
     const auth = getAuth();
@@ -56,9 +59,12 @@ const LoginScreen = ({ navigation }) => {
 
     alert(errorMessage);
   });
-
+    
 
   };
+
+ 
+
   return (
     <KeyboardAvoidingView style={styles.container}>
       <StatusBar style="light" />
@@ -66,7 +72,7 @@ const LoginScreen = ({ navigation }) => {
         source={{
           uri: "https://i.ibb.co/K6fmv4c/Design-1-2.png",
         }}
-        style={{ width: 200, height: 200 }}
+        style={{ width: 180, height: 180 }}
       />
       <View style={styles.inputContainer}>
         <Input
@@ -90,6 +96,8 @@ const LoginScreen = ({ navigation }) => {
         type="outline"
         onPress={() => navigation.navigate("Register")}
       />
+
+
     </KeyboardAvoidingView>
   );
 };
@@ -106,10 +114,14 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     width: 300,
-    marginTop: 10,
+    marginTop: 5,
   },
   button: {
     width: 200,
-    marginTop: 5,
+    marginBottom: 10,
+  },
+  Gbutton: {
+    width: 200,
+    marginBottom: 10,
   },
 });

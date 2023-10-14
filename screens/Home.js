@@ -47,7 +47,7 @@ const Home = ({ navigation , route }) => {
       .then(() => {
         // Sign-out successful.
         console.log("Sign-out successful");
-        navigation.replace("Login");
+        navigation.replace("Login");  
       })
       .catch((error) => {
         // An error happened.
@@ -82,7 +82,7 @@ const Home = ({ navigation , route }) => {
           <Avatar
             rounded
             source={{ uri: auth?.currentUser?.photoURL || "https://icon-library.com/images/android-profile-icon/android-profile-icon-27.jpg" }}
-            size={45}
+            size={70}
           />
         </TouchableOpacity>
       ),

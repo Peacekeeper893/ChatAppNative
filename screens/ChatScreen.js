@@ -6,6 +6,7 @@ import { StatusBar } from "expo-status-bar";
 import { TouchableOpacity , TextInput , Text} from "react-native";
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 
+
 import {
   getAuth,
   collection,
@@ -20,6 +21,20 @@ import {
 const ChatScreen = ({ navigation, route }) => {
 
   console.log("Chat Screen")
+
+  function convertTimestamp(timestamp) {
+    let date;
+
+    if (timestamp)
+    {
+      date = timestamp.toDate().toLocaleDateString();
+      
+      date += "  " +  timestamp.toDate().toLocaleTimeString();
+      
+    }
+
+    return date === null ? "" : date;
+  }
 
 
   const auth = getAuth()
@@ -101,7 +116,7 @@ const ChatScreen = ({ navigation, route }) => {
       onSnapshot(
         query(
           collection(db, `chats/${route.params.id}`, 'messages'),
-          orderBy('timestamp', 'desc')
+          orderBy('timestamp' , 'desc')
         ),
         (snapshot) => {
           setMessages(
@@ -151,6 +166,14 @@ const ChatScreen = ({ navigation, route }) => {
                         }}
                       />
                       <Text style={styles.receiverText}>{message.message}</Text>
+                      
+
+                      
+                      <Text style={styles.receiverTextTime}>{
+
+                        convertTimestamp(message.timestamp)
+
+                      }</Text>
                     </View>
                   </View>
                 ) : (
@@ -169,7 +192,14 @@ const ChatScreen = ({ navigation, route }) => {
                           right: -5,
                         }}
                       />
-                      <Text style={styles.senderText}>{message.message}</Text>
+                        <Text style={styles.senderText}>{message.message}</Text>
+                        
+                      
+                          <Text style={styles.senderTextTime}>{
+
+                          convertTimestamp(message.timestamp)
+
+                        }</Text>
                       <Text style={styles.senderName}>
                         {message.displayName}
                       </Text>
@@ -225,33 +255,61 @@ const styles = StyleSheet.create({
       borderRadius: 30,
     },
     receiverText: {
-      color: 'black',
-      fontWeight: 500,
-      marginLeft: 10,
-    },
-    senderText: {
       color: 'white',
       fontWeight: 500,
       marginLeft: 10,
-      marginBottom: 15,
+      marginBottom: 3,
+
+
+    },
+    receiverTextTime: {
+      color: 'grey',
+      fontWeight: 300,
+      marginLeft: 10,
+      fontSize: 12,
+      paddingLeft: 10,
+      position: 'absolute',
+      bottom: -20,
+      right:25,
+      
+    },
+    senderTextTime: {
+      color: 'black',
+      fontWeight: 300,
+      marginRight: 10,
+      fontSize: 12,
+      paddingLeft: 10,
+      marginBottom: 7,
+      position: 'absolute',
+      bottom: -23,
+      left:0,
+      
+    },
+    senderText: {
+      color: 'black',
+      fontWeight: 500,
+      marginLeft: 10,
+      marginBottom: 7,
     },
     receiver: {
       padding: 15,
-      backgroundColor: '#ececec',
+      backgroundColor: '#2b68e6',
       alignItems: 'flex-end',
       borderRadius: 20,
       marginRight: 15,
-      marginBottom: 20,
+      marginBottom: 29,
+      minWidth:'20%',
       maxWidth: '80%',
       position: 'relative',
     },
     sender: {
       padding: 15,
-      backgroundColor: '#2b68e6',
+      backgroundColor: '#ececec',
       alignItems: 'flex-start',
       borderRadius: 20,
       marginLeft: 15,
-      marginBottom: 20,
+      marginBottom: 27,
+      minWidth: '37.5%',
       maxWidth: '80%',
       position: 'relative',
     },
@@ -259,6 +317,6 @@ const styles = StyleSheet.create({
       left: 10,
       paddingRight: 10,
       fontSize: 10,
-      color: 'white',
+      color: 'black',
     },
   })
